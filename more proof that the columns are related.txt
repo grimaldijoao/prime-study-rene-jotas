@@ -1,0 +1,6 @@
+11 + 12 * (N - 1) = 131  (N = 11)  (from 1 + 12 * (N -1) = -Divide[1,12])
+11 + 12 * (N - 1) = 11   (N = 1)   (from 11 + 12 * (N -1) = -Divide[1,12])
+11 + 12 * (N - 1) = 59   (N = 5)   (from 7 + 12 * (N -1) = -Divide[1,12])
+11 + 12 * (N - 1) = 83   (N = 7)   (from 5 + 12 * (N -1) = -Divide[1,12]) 
+
+thy all yielded N/144 (144 is a fibonnacci number)

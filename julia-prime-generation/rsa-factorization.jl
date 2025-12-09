@@ -1,0 +1,6 @@
+println("started")
+for i in isqrt(BigInt(1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139)):-1:1
+    semiprime = 5 + 12 * i
+    println(semiprime)
+end
+println("ended")

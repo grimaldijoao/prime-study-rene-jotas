@@ -23,7 +23,7 @@ function getPrimePosition(number::BigInt)
     else
       println("$(number) is possible prime of $(col) in line $(position)")
     end
-    
+
   else
     println("$(number) is not prime")
   end
