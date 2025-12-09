@@ -41,9 +41,14 @@ where:
     a = 1, 5, 7, 11 (1 was used as 13 for obvious reasons)
 """
 function satisfies_fermat(p::BigInt)
-  return powermod(13, p - 1, p) == 1 && powermod(5, p - 1, p) == 1 && powermod(7, p - 1, p) == 1 && powermod(11, p - 1, p) == 1
+    bases = (13, 5, 7, 11)
+    for a in bases
+        if powermod(a, p - 1, p) != 1
+            return false
+        end
+    end
+    return true
 end
-
 
 """
   Generates prime numbers from col by using fermats little theorem
