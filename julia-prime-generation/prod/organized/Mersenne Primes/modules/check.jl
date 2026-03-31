@@ -2,11 +2,19 @@ function lucas_lehmer(p::Integer)
     if p == 2
         return true
     end
-    M = BigInt(2)^p - 1
+
+    M = (BigInt(1) << p) - 1
     s = BigInt(4)
+
     for _ in 1:p-2
-        s = (s^2 - 2) % M
+        s = s * s - 2
+        # Fast Mersenne modulo:
+        s = (s & M) + (s >> p)
+        if s >= M
+            s -= M
+        end
     end
+
     return s == 0
 end
 

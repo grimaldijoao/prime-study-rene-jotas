@@ -1,6 +1,7 @@
 using Primes
 
 include("check.jl")
+include("benchmark.jl")
 include("position.jl")
 
 function getPossiblePrime(col::Integer, line::Integer)
@@ -71,26 +72,26 @@ function shortnum(n::Integer; head=3, tail=3)
     return s[1:head] * "..." * s[end-tail+1:end]
 end
 
-println("Mersenne Primes:")
-
-start = time()
-
-global primes_found = 2
-global i = 0
-while primes_found != 52
-  global i += 1
-  for col in [1, 5, 7, 11]
-    p_from_col = BigInt(col + (12 * (i-1)))
-    #println("p = $(shortnum(p_from_col))")
-    probable_prime = 2^BigInt(p_from_col)-1
-    #println("$(probable_prime) is from col $(getPrimePosition(probable_prime)[1])? = $(getPrimePosition(probable_prime)[2])")
-    if(satisfies_fermat(probable_prime))
-      global primes_found += 1
-      println("#$(primes_found) probable: 2^$(p_from_col)-1 | $(shortnum(probable_prime)) - satisfies fermat 13 5 7 11")
-    end
-  end
-end
-
-elapsed_ms = (time() - start) * 1000
-
-println("Found all those primes in $(elapsed_ms)ms!")
+#println("Mersenne Primes:")
+#
+#start = time()
+#
+#global primes_found = 2
+#global i = 0
+#while primes_found != 52
+#  global i += 1
+#  for col in [1, 5, 7, 11]
+#    p_from_col = BigInt(col + (12 * (i-1)))
+#    #println("p = $(shortnum(p_from_col))")
+#    probable_prime = 2^BigInt(p_from_col)-1
+#    #println("$(probable_prime) is from col $(getPrimePosition(probable_prime)[1])? = $(getPrimePosition(probable_prime)[2])")
+#    if(fermat_math_optimized(probable_prime))
+#      global primes_found += 1
+#      println("#$(primes_found) probable: 2^$(p_from_col)-1 | $(shortnum(probable_prime)) - satisfies fermat 13 5 7 11")
+#    end
+#  end
+#end
+#
+#elapsed_ms = (time() - start) * 1000
+#
+#println("Found all those primes in $(elapsed_ms)ms!")
